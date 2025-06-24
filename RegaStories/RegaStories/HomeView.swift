@@ -10,35 +10,22 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            ScrollView(.horizontal) {
+            ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(0..<10) { index in
                         Image(systemName: "photo")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: 40, height: 40)
                             .background(Color.white)
                             .clipShape(Circle())
-                            .padding(3)
-                            .background(
-                                Circle().fill(
-                                    .white
-                                )
-                            )
-                            .padding(3)
-                            .background(
-                                Circle().fill(
-                                    LinearGradient(
-                                        colors: [.yellow, .red, .purple],
-                                        startPoint: .bottomLeading,
-                                        endPoint: .topTrailing
-                                    )
-                                )
-                            )
-                            .padding(.horizontal, 4)
+                            .modifier(StoryOverlay())
+                            .frame(width: 80, height: 80)
+                            .padding(.horizontal, 3)
+
                     }
                     .background(Color.white.opacity(0.8))
                 }
+                .padding(4)
             }
             LinearGradient(
                 colors: [.yellow, .red, .purple],
@@ -48,6 +35,24 @@ struct ContentView: View {
             .ignoresSafeArea(edges: .bottom)
         }
     }
+}
+
+
+struct StoryOverlay: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .padding(4)
+            .overlay(
+                Circle()
+                    .stroke(
+                        LinearGradient(
+                            colors: [.yellow, .red, .purple],
+                            startPoint: .bottomLeading,
+                            endPoint: .topTrailing
+                        ),
+                        lineWidth: 4
+                    )
+            )    }
 }
 
 #Preview {
