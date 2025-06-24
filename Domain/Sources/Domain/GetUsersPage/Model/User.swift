@@ -1,7 +1,7 @@
 public struct User {
-    let id: Int
-    let name: String
-    let profilePictureURL: String
+    public let id: Int
+    public let name: String
+    public let profilePictureURL: String
 
     public init(id: Int, name: String, profilePictureURL: String) {
         self.id = id

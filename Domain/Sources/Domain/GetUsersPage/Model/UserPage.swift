@@ -1,8 +1,8 @@
 public struct UserPage {
-    let page: Int
-    let totalPages: Int
-    let hasNextPage: Bool
-    let users: [User]
+    public let page: Int
+    public let totalPages: Int
+    public let hasNextPage: Bool
+    public let users: [User]
 
     public init(page: Int, totalPages: Int, hasNextPage: Bool, users: [User]) {
         self.page = page

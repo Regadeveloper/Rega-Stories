@@ -1,17 +1,11 @@
-//
-//  RegaStoriesApp.swift
-//  RegaStories
-//
-//  Created by Raul Regadera on 24/6/25.
-//
-
 import SwiftUI
+import Factory
 
 @main
 struct RegaStoriesApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Factory.createHomeView()
         }
     }
 }

@@ -1,10 +1,16 @@
-protocol GetUsersPageUseCase {
+public protocol GetUsersPageUseCase {
     func getUserPage(page: Int) async throws -> UserPage
 }
 
-struct DefaultGetUsersPageUseCase: GetUsersPageUseCase {
+public struct DefaultGetUsersPageUseCase: GetUsersPageUseCase {
     let getUsersPageRepository: GetUsersPageRepository
-    func getUserPage(page: Int) async throws -> UserPage {
+
+    public init(getUsersPageRepository: any GetUsersPageRepository) {
+        self.getUsersPageRepository = getUsersPageRepository
+    }
+
+    public func getUserPage(page: Int) async throws -> UserPage {
         try await getUsersPageRepository.getUsersPage(page: page)
     }
+    
 }

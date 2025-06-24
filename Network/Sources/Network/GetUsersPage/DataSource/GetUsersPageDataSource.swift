@@ -1,7 +1,7 @@
 import Foundation
 import Domain
 
-protocol GetUsersPageDataSource {
+public protocol GetUsersPageDataSource {
     func getUsersPageDataSource(page: Int) async throws -> UserPage
 }
 
@@ -12,11 +12,12 @@ enum GetUserPageDataSourceError: Error {
     case invalidData
 }
 
-struct DefaultGetUsersPageDataSource: GetUsersPageDataSource {
+public struct DefaultGetUsersPageDataSource: GetUsersPageDataSource {
+    public init() {}
 
     private let jsonDecoder = JSONDecoder()
 
-    func getUsersPageDataSource(page: Int) async throws -> UserPage {
+    public func getUsersPageDataSource(page: Int) async throws -> UserPage {
         let jsonName: String
         switch page {
         case 1:
@@ -37,12 +38,10 @@ struct DefaultGetUsersPageDataSource: GetUsersPageDataSource {
         } catch {
             throw GetUserPageDataSourceError.decodingError(error)
         }
-
-
     }
 
     private func loadJSON(named fileName: String) throws -> Data {
-        guard let json = Bundle.main.url(forResource: fileName, withExtension: "json") else {
+        guard let json = Bundle.module.url(forResource: fileName, withExtension: "json") else {
             throw GetUserPageDataSourceError.fileNotFound(fileName)
         }
 

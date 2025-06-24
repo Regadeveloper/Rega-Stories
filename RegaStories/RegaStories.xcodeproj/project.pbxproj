@@ -6,8 +6,17 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		DE6286C12E0B1A0E00614793 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = DE6286C02E0B1A0E00614793 /* Domain */; };
+		DE6286C32E0B1A0E00614793 /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = DE6286C22E0B1A0E00614793 /* Home */; };
+		DE6286C52E0B1A0E00614793 /* Network in Frameworks */ = {isa = PBXBuildFile; productRef = DE6286C42E0B1A0E00614793 /* Network */; };
+		DE6286C92E0B1CA900614793 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = DE6286C82E0B1CA900614793 /* Factory */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		DE1A662F2E0AF784003C360C /* RegaStories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RegaStories.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE6286BE2E0B156300614793 /* Home */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Home; path = ../Home; sourceTree = SOURCE_ROOT; };
+		DE6286C62E0B1B9500614793 /* Factory */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Factory; path = ../Factory; sourceTree = SOURCE_ROOT; };
 		DE754E232E0AF87C00E0BBE0 /* Network */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Network; path = ../Network; sourceTree = SOURCE_ROOT; };
 		DE754E242E0AF89200E0BBE0 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Domain; path = ../Domain; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -25,6 +34,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE6286C52E0B1A0E00614793 /* Network in Frameworks */,
+				DE6286C12E0B1A0E00614793 /* Domain in Frameworks */,
+				DE6286C32E0B1A0E00614793 /* Home in Frameworks */,
+				DE6286C92E0B1CA900614793 /* Factory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -36,6 +49,7 @@
 			children = (
 				DE754E222E0AF85300E0BBE0 /* Packages */,
 				DE1A66312E0AF784003C360C /* RegaStories */,
+				DE6286C72E0B1CA900614793 /* Frameworks */,
 				DE1A66302E0AF784003C360C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,9 +62,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		DE6286C72E0B1CA900614793 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DE754E222E0AF85300E0BBE0 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				DE6286C62E0B1B9500614793 /* Factory */,
+				DE6286BE2E0B156300614793 /* Home */,
 				DE754E242E0AF89200E0BBE0 /* Domain */,
 				DE754E232E0AF87C00E0BBE0 /* Network */,
 			);
@@ -77,6 +100,10 @@
 			);
 			name = RegaStories;
 			packageProductDependencies = (
+				DE6286C02E0B1A0E00614793 /* Domain */,
+				DE6286C22E0B1A0E00614793 /* Home */,
+				DE6286C42E0B1A0E00614793 /* Network */,
+				DE6286C82E0B1CA900614793 /* Factory */,
 			);
 			productName = RegaStories;
 			productReference = DE1A662F2E0AF784003C360C /* RegaStories.app */;
@@ -336,6 +363,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DE6286C02E0B1A0E00614793 /* Domain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Domain;
+		};
+		DE6286C22E0B1A0E00614793 /* Home */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Home;
+		};
+		DE6286C42E0B1A0E00614793 /* Network */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Network;
+		};
+		DE6286C82E0B1CA900614793 /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Factory;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DE1A66272E0AF784003C360C /* Project object */;
 }
