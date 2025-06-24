@@ -25,7 +25,7 @@ public struct DefaultGetUsersPageDataSource: GetUsersPageDataSource {
         case 2:
             jsonName = "SecondUserPage"
         case 3:
-            jsonName = "ThirdUserPage"
+            jsonName = "LastUserPage"
         default:
             jsonName = "FirstUserPage" // Default to the first page for infinite loading in this example
         }

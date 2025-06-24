@@ -10,50 +10,61 @@ public struct HomeView: View {
     }
 
     public var body: some View {
-        VStack {
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                    ForEach(viewModel.users) { user in
-                        AsyncImage(
-                            url: user.pictureURL,
-                            content: { image in
-                                image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                            },
-                            placeholder: {
-                                Image(systemName: "photo")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .foregroundStyle(.gray)
-                                    .padding(20)
-                            }
-                        )
-                        .background(Color.white)
-                        .clipShape(Circle())
-                        .modifier(StoryOverlay())
-                        .frame(width: 80, height: 80)
-                        .padding(.horizontal, 3)
-                    }
-                }
-                .padding(4)
-            }
-            .frame(height: 95)
-
-            LinearGradient(
-                colors: [.yellow, .red, .purple],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-            .ignoresSafeArea(edges: .bottom)
+        VStack(spacing: 0) {
+            storiesScrollView
+            contentView
         }
         .task {
-            do {
-                try await viewModel.fetchUsers(page: 1)
-            } catch {
-                print("🔴 Error al obtener los usuarios: \(error)")
-            }
+            await viewModel.loadInitialUsers()
         }
+    }
+
+    private var storiesScrollView: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack {
+                ForEach(viewModel.users.indices, id: \.self) { index in
+                    let user = viewModel.users[index]
+                    storyIcon(for: user)
+                        .onAppear {
+                            viewModel.loadMoreUsersIfNeeded(at: index)
+                        }
+                }
+            }
+            .padding(4)
+        }
+        .frame(height: 95)
+    }
+
+    private func storyIcon(for user: UserViewModel) -> some View {
+        AsyncImage(
+            url: user.pictureURL,
+            content: { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+            },
+            placeholder: {
+                Image(systemName: "photo")
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundStyle(.gray)
+                    .padding(20)
+            }
+        )
+        .background(Color.white)
+        .clipShape(Circle())
+        .modifier(StoryOverlay())
+        .frame(width: 80, height: 80)
+        .padding(.horizontal, 3)
+    }
+
+    private var contentView: some View {
+        LinearGradient(
+            colors: [.yellow, .red, .purple],
+            startPoint: .top,
+            endPoint: .bottom
+        )
+        .ignoresSafeArea(edges: .bottom)
     }
 }
 

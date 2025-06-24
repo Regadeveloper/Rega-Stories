@@ -1,4 +1,4 @@
-public struct UserPage {
+public struct UserPage: Sendable {
     public let page: Int
     public let totalPages: Int
     public let hasNextPage: Bool

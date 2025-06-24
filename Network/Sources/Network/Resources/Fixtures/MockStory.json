@@ -1,0 +1,28 @@
+{
+  "user": {
+    "id": "123456789",
+    "username": "raul.regadera",
+    "profile_picture_url": "https://i.pravatar.cc/300?u=123456789"
+  },
+  "stories_count": 3,
+  "stories": [
+    {
+      "id": "story_001",
+      "posted_at": "2025-06-24T18:30:00Z",
+      "image_url": "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600",
+      "liked_by_user": true
+    },
+    {
+      "id": "story_002",
+      "posted_at": "2025-06-24T15:10:25Z",
+      "image_url": "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?w=600",
+      "liked_by_user": false
+    },
+    {
+      "id": "story_003",
+      "posted_at": "2025-06-24T11:45:10Z",
+      "image_url": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600",
+      "liked_by_user": false
+    }
+  ]
+}
