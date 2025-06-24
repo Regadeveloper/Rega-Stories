@@ -1,4 +1,4 @@
-public struct User: Codable {
+public struct UserApiModel: Codable {
     let id: Int
     let name: String
     let profilePictureURL: String

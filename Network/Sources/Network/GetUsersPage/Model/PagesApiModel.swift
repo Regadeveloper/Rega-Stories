@@ -1,8 +1,8 @@
-public struct UserPage: Codable {
+public struct UserPageApi: Codable {
     let page: Int
     let totalPages: Int
     let hasNextPage: Bool
-    let users: [User]
+    let users: [UserApiModel]
 
     private enum CodingKeys: String, CodingKey {
         case page
